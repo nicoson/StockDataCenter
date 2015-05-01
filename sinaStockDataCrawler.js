@@ -1,22 +1,27 @@
 var url = require('url');
 var fs = require('fs');
 var superagent = require('superagent');
-//var cheerio = require('cheerio');
 var async = require('async');
 
-//	set the parameters of the function
-var range = [1991, 2014];	// set the year range of data
+
+//	load the parameters of the function
+var argu = fs.readFileSync('arguments.json', 'utf-8');
+argu = JSON.parse(argu);
+var range = argu.historicalDataRange;	// set the year range of data
+var filedir = argu.StockCodeListLoadDir;
+var savedir = argu.historicalDataFileDir;
+
 
 //	load the stock information
-var stockList = fs.readFileSync('Database/StockCodeListSH.json', 'utf-8');
-stockList = stockList.match(/(\d{6})/g);
-var startYear = fs.readFileSync('Database/StockYearListSH.json', 'utf-8');
-startYear = startYear.match(/(\d{4})/g);
-var savedir = 'Database/HistoricalQuarterData/';
-
-// set parameters for concurrency running
-var concurrency = 50;	//parallal threads number
-var q = async.queue(crawler, concurrency);
+var stockList = [];
+for(var i = 0; i < filedir.length; i++){
+	var list = fs.readFileSync(filedir[i], 'utf-8');
+	list = list.match(/\d{6}/g);
+	stockList = stockList.concat(list);
+}
+var startYear = fs.readFileSync(argu.StockYearListLoadDir, 'utf-8');
+startYear = startYear.split(',');
+debugger;
 
 // set the parameters for check the process of the tasks
 var startTime = new Date();
@@ -34,9 +39,12 @@ if(fs.existsSync(savedir+'taskTable.json')){
 }else{
 	var taskTable = [];
 }
-debugger;
+
 
 // task deployment
+// set parameters for concurrency running
+var concurrency = 50;	//parallal threads number
+var q = async.queue(crawler, concurrency);
 console.log("There are totally "+sumtask+" tasks");
 for(var i=0; i<5; i++){
 	for(var y = Math.max(startYear[i],range[0]); y <= Math.min(startTime.getFullYear(), range[1]); y++){

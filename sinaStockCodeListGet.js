@@ -7,6 +7,14 @@ var async = require('async');
 
 var begtime = new Date();
 
+// load the arugments
+var argu = fs.readFileSync('arguments.json', 'utf-8');
+argu = JSON.parse(argu);
+var savedir_sh = argu.StockCodeListSaveDirSH;
+var savedir_sz = argu.StockCodeListSaveDirSZ;
+
+
+// set global object to share the information between each thread
 function infObj(){
 	this.page = 1;
 	this.flag = true;
@@ -18,28 +26,28 @@ async.whilst(
 	function () { return infObjSH.flag; },
 	function (callback) { loadProcess(callback,'sh_a',infObjSH); },
 	function (err) {
-		fs.writeFile('Database/StockCodeListSH.json',infObjSH.StockList.join(","),function(err,fd){
+		fs.writeFile(savedir_sh, infObjSH.StockList.join(","),function(err,fd){
 			if(err) throw err;
 			var endtime = new Date();
 			console.log("SHSE done!  "+(endtime.getTime()-begtime.getTime()));
 			console.log(infObjSH.StockList.length);
 		});
 	}
-	);
+);
 
 infObjSZ = new infObj;
 async.whilst(
 	function () { return infObjSZ.flag; },
 	function (callback) { loadProcess(callback,'sz_a',infObjSZ); },
 	function (err) {
-		fs.writeFile('Database/StockCodeListSZ.json',infObjSZ.StockList.join(","),function(err,fd){
+		fs.writeFile(savedir_sz,infObjSZ.StockList.join(","),function(err,fd){
 			if(err) throw err;
 			var endtime = new Date();
 			console.log("SZSE done!  "+(endtime.getTime()-begtime.getTime()));
 			console.log(infObjSZ.StockList.length);
 		});
 	}
-	);
+);
 
 
 

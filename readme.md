@@ -7,7 +7,8 @@ Workspace structure:
 
 	StockDataCenter
 		.  
-		├── package.json  
+		├── package.json
+		├── arguments.json
 		├── readme.md
 		├── sinaStockCodeListGet.js
 		├── sinaStockPageInfoGet.js
@@ -20,8 +21,7 @@ Workspace structure:
 		└── Database  
 		    ├── StockCodeListSH.json
 		    ├── StockCodeListSZ.json
-		    ├── StockYearListSH.json
-		    ├── StockYearListSZ.json
+		    ├── StockYearList.json
 		    ├── 
 		    ├── 
 			├── HistoricalQuarterData
@@ -39,14 +39,19 @@ Workspace structure:
 
 
 Quick Start:
-	1. package.json
+	0. package.json
 		set the requirement of the package;
+
+	1. arguments.json
+		set the arguments for all of the js files.
+		By setting different load file dirs, part of the js function can be reused for different set of stock list.
+		
 	2. sinaStockCodeListGet.js
 		crawl the stock code list for both Shanghai Stock Exchange and Shenzhen Stock Exchange.
 
 		2.1 result files:
-			"Database/StockCodeListSH.json": is the result for SSE
-			"Database/StockCodeListSZ.json": is the result for SZE
+			"Database/StockCodeListSH.json": is the result for SHSE
+			"Database/StockCodeListSZ.json": is the result for SZSE
 
 		2.2 file type: string array
 
@@ -57,7 +62,7 @@ Quick Start:
 			[2].sinaStockCodeListGet.js
 
 		3.1 result files:
-			"Database/StockYearListSH.json": is the result for SSE
+			"Database/StockYearList.json": is the result for SHSE and SZSE
 
 		3.2 file type: string array
 

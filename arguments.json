@@ -1,0 +1,15 @@
+{
+	"StockCodeListSaveDirSH": "Database/StockCodeListSH.json",
+	"StockCodeListSaveDirSZ": "Database/StockCodeListSZ.json",
+	
+	"StockCodeListLoadDir": ["Database/StockCodeListSH.json", "Database/StockCodeListSZ.json"],
+
+	"StockYearListSaveDir": "Database/StockYearList.json",
+	"StockYearListLoadDir": "Database/StockYearList.json",
+
+	"historicalDataRange": [1991, 2014],
+	"historicalDataFileDir": "Database/HistoricalQuarterData/",
+
+	"updateDataRange": [2015, 2015],
+	"updateDataFileDir": "Database/UpdateQuarterData/"
+}
