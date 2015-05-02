@@ -10,6 +10,7 @@
 	"historicalDataRange": [1991, 2014],
 	"historicalDataFileDir": "Database/HistoricalQuarterData/",
 
-	"updateDataRange": [2015, 2015],
+	"updateDataRange": [2015, 1, 2],
+	"updateStockCodeListLoadDir": ["Database/StockCodeListSH.json", "Database/StockCodeListSZ.json"],
 	"updateDataFileDir": "Database/UpdateQuarterData/"
 }

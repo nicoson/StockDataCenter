@@ -81,4 +81,35 @@ Quick Start:
 			"Database/HistoricalQuarterData/taskTable":
 				record the process for one task group. if the task group is interrupted, then run the js file again, the program will just skip the completed files.
 
-	5. 
+	5. sinaStockDataUpdate.js
+		update the new trading data to a different directory
+
+		5.0 dependent step:
+			[3].sinaStockPageInfoGet.js
+
+		5.1 result files:
+			"Database/UpdateQuarterData/cccccc_yyyy_q": the 'q'th quarter data for year 'yyyy' for stock 'cccccc'
+		
+		5.2  file type: JSON data file
+
+		5.3 template log files:
+			"Database/HistoricalQuarterData/taskTable":
+				record the process for one task group. if the task group is interrupted, then run the js file again, the program will just skip the completed files.
+
+		5.4 parameter set:
+			(1) updateDataRange: [year startquarter endquarter], usually set to be a closest quarter;
+			(2) updateStockCodeListLoadDir: the stock code list for update
+			(3) updateDataFileDir: set the directory where to store the data
+
+	6. sinaStockDataMerger.js
+		merger the historical quarter data into one complete data piece
+
+		6.0 dependent step:
+			[4].sinaStockDataCrawler.js
+
+		6.1 result files:
+			"Database/UpdateMergerData/cccccc_yyyy_yyyy": the complete historical data for stock 'cccccc' from year 'yyyy' to year 'yyyy'
+
+		6.2  file type: JSON data file
+
+		6.3 parameter set:
