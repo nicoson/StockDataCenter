@@ -33,17 +33,17 @@ nodejs, mysql
 
 <h4>MySQL database structure:</h4>
 <pre>
-	├── StockDataInfoCenter
-	│   ├── StockInfoList
-	│   └── ... 
-	│
-	├── historicalDatabase
-	│   ├── t600000
-	│   └── ... 
-	│
-	└── updateDatabase
-		├── t600000
-		└── ... 
+		├── StockDataInfoCenter
+		│   ├── StockInfoList
+		│   └── ... 
+		│
+		├── historicalDatabase
+		│   ├── t600000
+		│   └── ... 
+		│
+		└── updateDatabase
+			├── t600000
+			└── ... 
 </pre>
 <br />
 
