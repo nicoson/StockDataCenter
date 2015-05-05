@@ -8,9 +8,6 @@ nodejs, mysql
 
 
 <h4>Workspace structure:</h4>
-<br />
-
-
 <pre>
 	StockDataCenter
 		.  
@@ -35,9 +32,6 @@ nodejs, mysql
 
 
 <h4>MySQL database structure:</h4>
-<br />
-
-
 <pre>
 	├── StockDataInfoCenter
 	│   ├── StockInfoList
@@ -68,6 +62,7 @@ nodejs, mysql
 		<p>set the arguments for all of the js files.</p>
 		<p>By setting different load file dirs, part of the js function can be reused for different set of stock list.</p>
 	</li>
+	<br />
 
 	<li>
 		<h5>DatabaseInit.js</h5>
@@ -75,15 +70,15 @@ nodejs, mysql
 		<p>The database structure is shown up, and table structure is as following:</p>
 
 		<pre>
-	table: StockInfoList
-	+-----------+------------------+------+-----+---------+----------------+
-	| Field     | Type             | Null | Key | Default | Extra          |
-	+-----------+------------------+------+-----+---------+----------------+
-	| id        | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-	| stockid   | char(6)          | NO   | UNI | NULL    |                |
-	| stocktype | int(10) unsigned | NO   |     | NULL    |                |
-	| startYear | int(10) unsigned | NO   |     | NULL    |                |
-	+-----------+------------------+------+-----+---------+----------------+
+table: StockInfoList
++-----------+------------------+------+-----+---------+----------------+
+| Field     | Type             | Null | Key | Default | Extra          |
++-----------+------------------+------+-----+---------+----------------+
+| id        | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| stockid   | char(6)          | NO   | UNI | NULL    |                |
+| stocktype | int(10) unsigned | NO   |     | NULL    |                |
+| startYear | int(10) unsigned | NO   |     | NULL    |                |
++-----------+------------------+------+-----+---------+----------------+
 		</pre>
 	</li>
 	<br />
@@ -128,20 +123,20 @@ nodejs, mysql
 		<p>[2].DatabaseInit.js, [4].sinaStockPageInfoGet.js</p>
 
 		<pre>
-	table: tcccccc (eg. t600000)
-	+-----------+------------------+------+-----+---------+----------------+
-	| Field     | Type             | Null | Key | Default | Extra          |
-	+-----------+------------------+------+-----+---------+----------------+
-	| id        | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-	| tradedate | date             | YES  | UNI | NULL    |                |
-	| open      | float            | NO   |     | NULL    |                |
-	| high      | float            | NO   |     | NULL    |                |
-	| close     | float            | NO   |     | NULL    |                |
-	| low       | float            | NO   |     | NULL    |                |
-	| vol       | float            | NO   |     | NULL    |                |
-	| amount    | float            | NO   |     | NULL    |                |
-	| weight    | float            | NO   |     | NULL    |                |
-	+-----------+------------------+------+-----+---------+----------------+
+table: tcccccc (eg. t600000)
++-----------+------------------+------+-----+---------+----------------+
+| Field     | Type             | Null | Key | Default | Extra          |
++-----------+------------------+------+-----+---------+----------------+
+| id        | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| tradedate | date             | YES  | UNI | NULL    |                |
+| open      | float            | NO   |     | NULL    |                |
+| high      | float            | NO   |     | NULL    |                |
+| close     | float            | NO   |     | NULL    |                |
+| low       | float            | NO   |     | NULL    |                |
+| vol       | float            | NO   |     | NULL    |                |
+| amount    | float            | NO   |     | NULL    |                |
+| weight    | float            | NO   |     | NULL    |                |
++-----------+------------------+------+-----+---------+----------------+
 		</pre>
 	</li>
 	<br />
@@ -151,22 +146,24 @@ nodejs, mysql
 	<li>
 		<h5>sinaStockDataCrawler.js</h5>
 		<p>crawl the stock trading data for each stocks</p>
-
-		<li>
-			dependent step:
-			<p>[4].sinaStockPageInfoGet.js; [5].SubDatabaseInit.js</p>
-		</li>
 		
-		<li>
-			result files:
-			<p>database: historicalDatabase</p>
-			<p>table: tcccccc (eg. t600000)</p>
-			<p>table structure is defined in [5]</p>
-		</li>
-		<li>*template log files:
-			<p>"Database/crawlerTaskTable_his.json":</p>
-			<p>record the process for one task group. if the task group is interrupted, then run the js file again, the program will just skip the completed files.</p>
-		</li>
+		<ol>
+			<li>
+				dependent step:
+				<p>[4].sinaStockPageInfoGet.js; [5].SubDatabaseInit.js</p>
+			</li>
+			
+			<li>
+				result files:
+				<p>database: historicalDatabase</p>
+				<p>table: tcccccc (eg. t600000)</p>
+				<p>table structure is defined in [5]</p>
+			</li>
+			<li>*template log files:
+				<p>"Database/crawlerTaskTable_his.json":</p>
+				<p>record the process for one task group. if the task group is interrupted, then run the js file again, the program will just skip the completed files.</p>
+			</li>
+		</ol>
 	</li>
 	<br />
 
