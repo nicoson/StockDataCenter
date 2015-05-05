@@ -1,16 +1,17 @@
 {
 	"StockCodeListSaveDirSH": "Database/StockCodeListSH.json",
 	"StockCodeListSaveDirSZ": "Database/StockCodeListSZ.json",
-	
 	"StockCodeListLoadDir": ["Database/StockCodeListSH.json", "Database/StockCodeListSZ.json"],
-
 	"StockYearListSaveDir": "Database/StockYearList.json",
-	"StockYearListLoadDir": "Database/StockYearList.json",
 
+	"StockDataInfoCenter": "StockDataInfoCenter",
+	"StockInfoList": "StockInfoList",
+	
 	"historicalDataRange": [1991, 2014],
-	"historicalDataFileDir": "Database/HistoricalQuarterData/",
+	"historicalDatabase": "historicalDatabase",
+	"historicalDataFileDir": "Database/crawlerTaskTable_his.json",
 
 	"updateDataRange": [2015, 1, 2],
-	"updateStockCodeListLoadDir": ["Database/StockCodeListSH.json", "Database/StockCodeListSZ.json"],
-	"updateDataFileDir": "Database/UpdateQuarterData/"
+	"updateDatabase": "updateDatabase",
+	"updateDataFileDir": "Database/crawlerTaskTable_up.json"
 }
