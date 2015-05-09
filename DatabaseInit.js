@@ -26,6 +26,11 @@ connection.query('CREATE DATABASE IF NOT EXISTS ' + argu.updateDatabase + ' CHAR
 	console.log('database established');
 });
 
+connection.query('CREATE DATABASE IF NOT EXISTS ' + argu.strategyDatabase + ' CHARACTER SET = UTF8', function(err, rows, fields) {
+	if (err) throw err;
+	console.log('database established');
+});
+
 connection.query('USE ' + argu.StockDataInfoCenter);
 
 connection.query('CREATE TABLE IF NOT EXISTS ' + argu.StockInfoList +

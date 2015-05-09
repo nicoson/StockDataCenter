@@ -13,5 +13,7 @@
 
 	"updateDataRange": [2015, 1, 2],
 	"updateDatabase": "updateDatabase",
-	"updateDataFileDir": "Database/crawlerTaskTable_up.json"
+	"updateDataFileDir": "Database/crawlerTaskTable_up.json",
+
+	"strategyDatabase": "strategyDatabase"
 }
