@@ -174,7 +174,7 @@ function crawler(para, callback){
 		data = data.slice(0,-1);
 
 
-		var sql = "INSERT INTO "+database+".t"+stock+"(tradedate, open, high, close, low, vol, amount, weight) VALUES"+data;
+		var sql = "INSERT IGNORE INTO "+database+".t"+stock+"(tradedate, open, high, close, low, vol, amount, weight) VALUES"+data;
 		connection.query(sql, function(err){
 			if(err){
 				if(err.errno == 1062){
