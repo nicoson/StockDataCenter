@@ -11,7 +11,7 @@
 	"historicalDatabase": "historicalDatabase",
 	"historicalDataFileDir": "Database/crawlerTaskTable_his.json",
 
-	"updateDataRange": [2015, 1, 2],
+	"updateDataRange": [2015, 3, 3],
 	"updateDatabase": "updateDatabase",
 	"updateDataFileDir": "Database/crawlerTaskTable_up.json",
 
